@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="sq">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tryeza e Rrumbullakët</title>
+<meta name="description" content="Pyetësor i hapur dhe anonim: si dilet nga qorrsokaku politik në Shqipëri? Rezultatet shfaqen live.">
+<meta property="og:title" content="Tryeza e Rrumbullakët: si dilet nga qorrsokaku?">
+<meta property="og:description" content="Pyetësor anonim, 5–7 minuta. Pa emra, pa email, pa parti. Shiko si mendojnë të tjerët.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: one reading column; questionnaire first, live results below, share/embed at the end. */
+:root{--bg:#f4f3ef;--paper:#fffefb;--ink:#1c1f24;--muted:#5b6169;--line:#e0ddd5;--accent:#1f4e79;--accent-soft:#e6edf5;--sel:#d9e5f2;--bar:#2f6aa3;--bar2:#b5652b;--warn:#8a3b12;--ok:#1f6b45;
+--serif:"Literata",Georgia,"Times New Roman",serif;--sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#13161a;--paper:#1a1e23;--ink:#e6e4df;--muted:#9aa0a8;--line:#2d3238;--accent:#8fb8e3;--accent-soft:#1e2935;--sel:#23374c;--bar:#6fa3d6;--bar2:#e0a274;--warn:#e7a37c;--ok:#7cc9a0;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#13161a;--paper:#1a1e23;--ink:#e6e4df;--muted:#9aa0a8;--line:#2d3238;--accent:#8fb8e3;--accent-soft:#1e2935;--sel:#23374c;--bar:#6fa3d6;--bar2:#e0a274;--warn:#e7a37c;--ok:#7cc9a0;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55}
+main{max-width:720px;margin:0 auto;padding-block:24px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1{font-family:var(--serif);font-size:clamp(30px,7vw,42px);line-height:1.12;margin:4px 0 8px;text-wrap:balance}
+h2{text-wrap:balance}
+.sub{color:var(--muted);font-size:14px;margin:0 0 18px}
+.tabs{display:flex;gap:8px;margin:0 0 18px}
+.tabs a{flex:1;text-align:center;font-weight:600;font-size:14px;padding:10px;border:1px solid var(--line);border-radius:8px;color:var(--accent);text-decoration:none;background:var(--paper)}
+.intro{font-family:var(--serif);font-size:16.5px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:0 0 14px}
+.intro p{margin:0 0 10px}.intro p:last-child{margin:0}
+.note{font-size:13.5px;background:var(--accent-soft);border-left:3px solid var(--accent);padding:10px 14px;border-radius:4px;margin:0 0 14px}
+.banner{font-size:13.5px;border:1px dashed var(--warn);color:var(--warn);padding:10px 14px;border-radius:8px;margin:0 0 14px}
+.sec{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:28px 0 10px;font-weight:600}
+.q{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px 16px 12px;margin:0 0 14px}
+.q h3{font-family:var(--serif);font-size:18px;line-height:1.35;margin:0 0 4px;font-weight:600}
+.hint{font-size:13px;color:var(--muted);margin:0 0 10px}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:9px 10px;margin:4px 0;border:1px solid transparent;border-radius:8px;cursor:pointer}
+.opt:hover{background:var(--accent-soft)}
+.opt input{margin:3px 0 0;width:18px;height:18px;flex:none;accent-color:var(--accent)}
+.opt.on{background:var(--sel);border-color:var(--accent)}
+.opt span{font-size:15px}
+.txt{width:100%;margin:6px 0 2px;padding:9px 10px;font:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px}
+textarea.txt{min-height:80px;resize:vertical}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.field label{display:block;font-size:13px;color:var(--muted);margin:0 0 4px;font-weight:500}
+select{width:100%;padding:9px 10px;font:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px}
+.scale{width:100%;border-collapse:collapse;font-size:14px}
+.scale td{padding:7px 2px;border-top:1px solid var(--line);vertical-align:middle}
+.scale td.lab{padding-right:8px}
+.dots{display:flex;gap:4px;justify-content:flex-end}
+.dots label{display:block;position:relative}
+.dots input{position:absolute;opacity:0;pointer-events:none}
+.dots span{display:flex;width:34px;height:34px;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:50%;font-size:13px;cursor:pointer;background:var(--bg)}
+.dots input:checked+span{background:var(--accent);color:var(--paper);border-color:var(--accent)}
+.dots input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+button,.btn{font-family:var(--sans);font-size:15px;font-weight:600;border-radius:8px;padding:12px 16px;cursor:pointer;border:1px solid var(--accent);text-decoration:none;text-align:center;background:transparent;color:var(--accent)}
+.primary{background:var(--accent);color:var(--paper);flex:1 1 100%}
+.wa{background:#1f7a4d;border-color:#1f7a4d;color:#fff}
+.err{color:var(--warn);font-size:14px;margin:8px 0 0}
+.done{background:var(--paper);border:1px solid var(--ok);border-radius:10px;padding:16px;margin:0 0 14px}
+.done h3{font-family:var(--serif);margin:0 0 6px;font-size:19px}
+/* results */
+#rezultatet{scroll-margin-top:12px}
+.rhead{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;justify-content:space-between;margin:0 0 10px}
+.rhead h2{font-family:var(--serif);font-size:26px;margin:0}
+.count{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.filters{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px;margin:0 0 14px}
+.filters .grid{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.r{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px;margin:0 0 14px}
+.r h3{font-family:var(--serif);font-size:17px;line-height:1.35;margin:0 0 4px;font-weight:600}
+.r .hint{margin-bottom:12px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) 52px;gap:4px 10px;align-items:center;margin:0 0 10px}
+.row .l{font-size:14px;min-width:0}
+.row .p{font-size:14px;font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.track{grid-column:1/-1;height:8px;background:var(--accent-soft);border-radius:4px;overflow:hidden}
+.fill{height:100%;background:var(--bar);border-radius:4px}
+.fill.b{background:var(--bar2)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin:0 0 12px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.stack{display:flex;height:14px;border-radius:4px;overflow:hidden;grid-column:1/-1;background:var(--accent-soft)}
+.stack span{height:100%}
+.few{font-size:14px;color:var(--muted);font-style:italic}
+.small{font-size:13px;color:var(--muted)}
+code,pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px}
+pre{white-space:pre-wrap;word-break:break-all;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px;margin:8px 0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:420px){.dots span{width:30px;height:30px}.scale{font-size:13px}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main>
+<h1>Tryeza e Rrumbullakët</h1>
+<p class="sub">Si dilet nga qorrsokaku? · Pyetësor i hapur dhe anonim · 5–7 minuta</p>
+<nav class="tabs"><a href="#pyetesori">Plotëso</a><a href="#rezultatet">Shiko rezultatet</a></nav>
+
+<div class="intro">
+<p>Qeveria thotë: fitova zgjedhjet një vit më parë, me 83 mandate, dhe nuk ulem me ata që djegin qytetin.</p>
+<p>Një pjesë e rrugës thërret «Rama ik», por askush nuk thotë qartë kush vjen ditën tjetër. Studentët e vërtetë nuk dalin në tryezë, nga frika se do t'i blejnë, do t'i kërcënojnë ose do t'i baltosin. Partitë e vjetra presin të përfitojnë. Partitë e reja janë të përçara. Artistët, profesorët dhe figurat publike heshtin.</p>
+<p>Në mes janë dyqanet, policët e lodhur, fëmijët gjashtëmbëdhjetëvjeçarë dhe prindërit e tyre.</p>
+<p>Kjo është një tryezë e rrumbullakët ku mund të ulet kushdo. Nuk ka përgjigje të sakta.</p>
+</div>
+
+<p class="note">Pa emër, pa email, pa llogari. Pyetjet për ty janë opsionale. Rezultatet janë të hapura për këdo. Ky nuk është sondazh shkencor: tregon mendimin e atyre që zgjodhën të përgjigjen.</p>
+<p class="banner" id="demoBanner" hidden>Mënyrë prove: faqja nuk është lidhur ende me formularin. Rezultatet poshtë janë të dhëna shembull.</p>
+
+<div id="doneBox" class="done" hidden>
+<h3>Faleminderit. Zëri yt u shtua në tryezë.</h3>
+<p class="small" style="margin:0 0 10px">Rezultatet përditësohen çdo disa minuta. Nga kjo pajisje mund të përgjigjesh vetëm një herë.</p>
+<div class="btns" style="margin:0"><a class="btn" href="#rezultatet">Shiko rezultatet</a><a class="btn wa" id="waShare1" href="#" target="_blank" rel="noopener">Ftoji të tjerët në WhatsApp</a></div>
+</div>
+
+<form id="pyetesori" autocomplete="off" novalidate></form>
+
+<section id="rezultatet" aria-live="polite">
+<div class="rhead"><h2>Rezultatet</h2><span class="count" id="count">Duke ngarkuar…</span></div>
+<div class="filters">
+<p class="small" style="margin:0 0 10px">Shiko si përgjigjen grupe të ndryshme. Një grup shfaqet vetëm kur ka të paktën 10 përgjigje.</p>
+<div class="grid" id="filters"></div>
+</div>
+<div id="results"></div>
+<p class="small" id="updated"></p>
+</section>
+
+<p class="sec">Ndaje</p>
+<div class="q">
+<h3>Ftoji të tjerët në tryezë</h3>
+<p class="hint">Sa më shumë zëra, aq më e vërtetë tryeza.</p>
+<div class="btns" style="margin:8px 0">
+<a class="btn wa" id="waShare2" href="#" target="_blank" rel="noopener">Dërgo në WhatsApp</a>
+<button type="button" id="copyLink">Kopjo lidhjen</button>
+</div>
+<p class="hint" style="margin-top:14px">Për faqe interneti dhe blogje: vendose pyetësorin në faqen tënde me këtë kod.</p>
+<pre id="embed"></pre>
+<div class="btns" style="margin:6px 0"><button type="button" id="copyEmbed">Kopjo kodin</button></div>
+<p class="small" id="copyMsg"></p>
+</div>
+</main>
+
+<script>
+/* ===================== KONFIGURIMI =====================
+   Plotëso këto tri fusha pasi të krijosh Google Form-in.
+   Bosh = mënyrë prove me të dhëna shembull. */
+var CONFIG = {
+  formAction: "",   // p.sh. "https://docs.google.com/forms/d/e/XXXX/formResponse"
+  entry: "",        // p.sh. "entry.123456789"
+  resultsCsv: ""    // p.sh. "https://docs.google.com/spreadsheets/d/e/XXXX/pub?gid=0&single=true&output=csv"
+};
+/* ======================================================= */
+
+var NOPE = "Nuk dua ta them";
+var P = [
+  {id:"age", label:"Mosha", opts:["Nën 18","18–24","25–34","35–49","50–64","65+"]},
+  {id:"st", label:"Çfarë bën", opts:["Nxënës/e (shkollë e mesme)","Student/e","Punoj në sektorin privat","Punoj në sektorin publik","Kam biznesin tim","I/e papunë","Pensionist/e","Emigrant/e"]},
+  {id:"wh", label:"Ku jeton", opts:["Tiranë","Qytet tjetër në Shqipëri","Fshat","Kosovë ose rajoni","Diasporë (BE, Mbretëri e Bashkuar)","Diasporë (gjetkë)"]},
+  {id:"vo", label:"Votove në zgjedhjet e 2025-ës?", opts:["Po","Jo, zgjodha të mos votoja","Jo, s'mundja (isha jashtë etj.)","S'kisha moshën"]},
+  {id:"pa", label:"Për kë votove në 2025? (nëse po)", opts:["PS","PD / Aleanca","PSD","Mundësia","Shqipëria Bëhet","Lëvizja Bashkë","Nisma Thurje","Parti tjetër","Votë e bardhë ose e pavlefshme"]},
+  {id:"sp", label:"Ku e ndien veten politikisht?", opts:["E majtë","Qendër e majtë","Qendër","Qendër e djathtë","E djathtë","Askund"]}
+];
+
+var Q = [
+  {sec:"Çfarë po ndodh"},
+  {id:"q1", type:"scale", min:0, max:3, title:"1. Rruga është një supë me shumë përbërës. Sa i madh është secili?", hint:"0 = s'ka fare · 1 = pak · 2 = një pjesë e mirë · 3 = shumë",
+   rows:["Studentë me kërkesa reale","Të rinj 19–29 që s'besojnë te vota","Adoleshentë nën 18, shumë nga periferitë","Militantë të organizuar të opozitës","Grupe të së majtës radikale","Provokatorë të vetë pushtetit","Huliganë që duan rrëmujë e plaçkë"]},
+  {id:"q2", type:"radio", title:"2. Sa nga dhuna mendon se është e organizuar?",
+   opts:["Pothuajse e gjitha. Ka dorë të fortë pas.","Shumica","Gjysmë për gjysmë","Pak. Kryesisht shpërthim spontan.","Nuk e di"]},
+  {id:"q3", type:"scale", min:1, max:5, title:"3. Sa përgjegjësi ka secili për gjendjen ku jemi?", hint:"1 = pak ose aspak · 5 = shumë",
+   rows:["Qeveria / Rama","PD / Berisha","Partitë e reja / të vogla","Organizatorët e protestës","Prindërit e të miturve","Policia","Media dhe rrjetet sociale","Ne, qytetarët (që s'votuam, s'folëm)"]},
+  {sec:"Si ndalet dhuna"},
+  {id:"q4", type:"check", max:3, other:true, title:"4. Çfarë mund ta ndalë dhunën në rrugë në javët e ardhshme?", hint:"Shumë mund të ndihmojnë. Zgjidh 3 më të rëndësishmet.",
+   opts:["Procedim i shpejtë i atyre që djegin, pa prekur protestuesit paqësorë","Organizatorët ndahen publikisht nga dhuna","Takim i hapur i Ramës me studentët, me ndërmjetës të pavarur","Thirrje e përbashkët e artistëve, profesorëve, klerikëve, sportistëve","Pezullim i masës në arsim që i ndezi protestat, deri në dialog","Përgjegjësi ligjore për prindërit e të miturve që djegin","Forma të tjera proteste: zinxhirë njerëzorë, bllokim paqësor i institucioneve","Asgjë. Do shuhet vetë."]},
+  {id:"q5", type:"radio", other:true, title:"5. Kush mund të ulet me qeverinë në emër të protestës?",
+   opts:["Studentë pa emra publikë, përmes Avokatit të Popullit ose Komitetit të Helsinkit","Rektorët dhe senatet akademike","Partitë e opozitës","Një grup qytetarësh të njohur jopartiakë","Ndërmjetës ndërkombëtar (BE, ambasadat)","Askush. Nuk ka me kë të ulesh."]},
+  {id:"q6", type:"check", max:2, title:"6. Pse heshtin artistët, profesorët dhe figurat publike?", hint:"Mund të jenë të gjitha. Zgjidh 2 arsyet kryesore.",
+   opts:["Varësi nga fondet, tenderat, vendet e punës","Frikë nga sulmet dhe baltosja në rrjete","Nuk duan të lidhen me dhunën","Polarizimi nuk lë hapësirë për zë të tretë","Flasin, por nuk i dëgjojmë","Nuk e di"]},
+  {sec:"Rrugëdalja politike"},
+  {id:"q7", type:"radio", title:"7. Realisht, çfarë mendon se do të ndodhë në 12 muajt e ardhshëm?",
+   opts:["Asgjë nuk ndryshon, Rama deri në 2029","Rama mbetet, por hap tryezë për reformat","PS ndërron kryeministrin, pa zgjedhje","Zgjedhje të parakohshme me ligjin aktual","Qeveri teknike 1–2 vjet, pastaj zgjedhje","Referendum për reformat kryesore","Përshkallëzim i mëtejshëm i dhunës"]},
+  {id:"q8", type:"radio", title:"8. Po ti, çfarë do doje të ndodhte?", hint:"Mund të jetë ndryshe nga përgjigjja e mëparshme.",
+   opts:["Asgjë nuk ndryshon, Rama deri në 2029","Rama mbetet, por hap tryezë për reformat","PS ndërron kryeministrin, pa zgjedhje","Zgjedhje të parakohshme me ligjin aktual","Qeveri teknike 1–2 vjet, pastaj zgjedhje","Referendum për reformat kryesore"], other:true},
+  {id:"q9", type:"check", max:3, other:true, title:"9. Afatgjatë, çfarë e thyen ciklin e 30 viteve?", hint:"Shumë mund të ndihmojnë. Zgjidh 3 më të rëndësishmet.",
+   opts:["Pakt 4-vjeçar i partive të reja, me program të përbashkët","Lista plotësisht të hapura","Kufizim mandatesh për kryeministrin dhe kryetarët e partive","Demokraci e brendshme në parti (primare të vërteta)","Vota e diasporës, e thjeshtë dhe e sigurt","Konfiskim i pasurive të pajustifikuara, me gjykatë","Arsim qytetar në shkolla"]},
+  {id:"q10", type:"check", title:"10. Cilat nga këto nuk duhet të ndodhin në asnjë rast?", hint:"Zgjidh sa të duash.",
+   opts:["Djegia e pronës private e publike","Dhuna e policisë ndaj protestuesve paqësorë","Rrëzimi i qeverisë me forcë","Ushtria në pushtet, qoftë edhe «përkohësisht»","Burgosja e të miturve","Gjueti shtrigash ndaj kundërshtarëve politikë"]},
+  {sec:"Ti"},
+  {id:"q11", type:"check", title:"11. Çfarë do të bëje vetë?", hint:"Zgjidh sa të duash.",
+   opts:["Do dilja në protestë paqësore","Do firmosja një deklaratë qytetare","Do votoja ndryshe herën tjetër","Do përfshihesha në politikë aktive","Do flisja me të rinjtë që njoh","Asgjë. Nuk kam më besim.","Do ikja nga vendi"]},
+  {id:"q12", type:"text", title:"12. Me një fjali: si e thyejmë rrethin?", hint:"Nuk shfaqet te rezultatet, por mos shkruaj emra ose të dhëna personale."}
+];
+
+var DEMO = !CONFIG.formAction || !CONFIG.entry || !CONFIG.resultsCsv;
+var VOTED_KEY = "tryeza_votoi_v1";
+var form = document.getElementById("pyetesori");
+
+function el(tag, attrs, kids){
+  var e=document.createElement(tag);
+  if(attrs) for(var k in attrs){ if(k==="text") e.textContent=attrs[k]; else if(k==="html") e.innerHTML=attrs[k]; else e.setAttribute(k,attrs[k]); }
+  (kids||[]).forEach(function(c){ if(c) e.appendChild(c); });
+  return e;
+}
+
+/* ---------- build the questionnaire ---------- */
+function buildForm(){
+  form.appendChild(el("p",{class:"sec",text:"Për ty (opsionale)"}));
+  var box=el("div",{class:"q"});
+  box.appendChild(el("h3",{text:"Kush je? Të gjitha fushat janë opsionale."}));
+  box.appendChild(el("p",{class:"hint",text:"Ndihmojnë të shohim si mendojnë grupe të ndryshme. Nuk të identifikojnë."}));
+  var g=el("div",{class:"grid"});
+  P.forEach(function(p){
+    var s=el("select",{id:"p_"+p.id,name:"p_"+p.id});
+    s.appendChild(el("option",{value:"",text:NOPE}));
+    p.opts.forEach(function(o,i){ s.appendChild(el("option",{value:String(i),text:o})); });
+    g.appendChild(el("div",{class:"field"},[el("label",{for:"p_"+p.id,text:p.label}),s]));
+  });
+  box.appendChild(g); form.appendChild(box);
+
+  Q.forEach(function(q){
+    if(q.sec){ form.appendChild(el("p",{class:"sec",text:q.sec})); return; }
+    var c=el("div",{class:"q","data-q":q.id});
+    c.appendChild(el("h3",{text:q.title}));
+    if(q.hint) c.appendChild(el("p",{class:"hint",text:q.hint}));
+    if(q.type==="radio"||q.type==="check"){
+      var t=q.type==="radio"?"radio":"checkbox";
+      q.opts.forEach(function(o,i){
+        var inp=el("input",{type:t,name:q.id,value:String(i),id:q.id+"_"+i});
+        c.appendChild(el("label",{class:"opt",for:q.id+"_"+i},[inp,el("span",{text:o})]));
+      });
+      if(q.other){
+        var oi=el("input",{type:t,name:q.id,value:"x",id:q.id+"_x","data-other":"1"});
+        c.appendChild(el("label",{class:"opt",for:q.id+"_x"},[oi,el("span",{text:"Tjetër"})]));
+        var ot=el("input",{class:"txt",type:"text",id:q.id+"_ot",maxlength:"200",placeholder:"Shkruaj…"}); ot.hidden=true; c.appendChild(ot);
+      }
+    } else if(q.type==="scale"){
+      var tb=el("table",{class:"scale"});
+      q.rows.forEach(function(r,ri){
+        var d=el("div",{class:"dots"});
+        for(var n=q.min;n<=q.max;n++){
+          var inp=el("input",{type:"radio",name:q.id+"_"+ri,value:String(n),id:q.id+"_"+ri+"_"+n,"aria-label":r+": "+n});
+          d.appendChild(el("label",{for:q.id+"_"+ri+"_"+n},[inp,el("span",{text:String(n)})]));
+        }
+        tb.appendChild(el("tr",null,[el("td",{class:"lab",text:r}),el("td",null,[d])]));
+      });
+      c.appendChild(tb);
+    } else if(q.type==="text"){
+      c.appendChild(el("textarea",{class:"txt",id:q.id,maxlength:"500",placeholder:"Shkruaj lirisht…"}));
+    }
+    form.appendChild(c);
+  });
+  form.appendChild(el("p",{class:"err",id:"err",hidden:"",text:"Përgjigju të paktën disa pyetjeve para se ta dërgosh."}));
+  form.appendChild(el("div",{class:"btns"},[el("button",{type:"submit",class:"primary",id:"send",text:"Dërgo zërin tim në tryezë"})]));
+}
+
+form.addEventListener("change",function(e){
+  var c=e.target.closest(".q"); if(!c||!c.dataset.q) return;
+  var q=Q.filter(function(x){return x.id===c.dataset.q;})[0];
+  if(q&&q.max&&e.target.type==="checkbox"&&e.target.checked){
+    if(c.querySelectorAll("input[type=checkbox]:checked").length>q.max){
+      e.target.checked=false;
+      var h=c.querySelector(".hint"); if(h){ var o=h.textContent; h.textContent="Mund të zgjedhësh deri në "+q.max+"."; h.style.color="var(--warn)"; setTimeout(function(){h.textContent=o;h.style.color="";},1800); }
+    }
+  }
+  c.querySelectorAll(".opt").forEach(function(o){ o.classList.toggle("on",o.querySelector("input").checked); });
+  var oi=c.querySelector("[data-other]"), ot=c.querySelector("input.txt");
+  if(oi&&ot) ot.hidden=!oi.checked;
+});
+
+/* ---------- collect one answer as compact JSON ---------- */
+function collect(){
+  var a={v:1}, n=0;
+  P.forEach(function(p){ var v=document.getElementById("p_"+p.id).value; if(v!==""){ a[p.id]=+v; } });
+  Q.forEach(function(q){
+    if(!q.id) return;
+    if(q.type==="radio"){
+      var c=form.querySelector("input[name="+q.id+"]:checked");
+      if(c){ n++; if(c.value==="x"){ a[q.id]="x"; var t=document.getElementById(q.id+"_ot").value.trim(); if(t) a[q.id+"o"]=t; } else a[q.id]=+c.value; }
+    } else if(q.type==="check"){
+      var arr=[]; form.querySelectorAll("input[name="+q.id+"]:checked").forEach(function(i){ arr.push(i.value==="x"?"x":+i.value); });
+      if(arr.length){ n++; a[q.id]=arr; if(arr.indexOf("x")>-1){ var t2=document.getElementById(q.id+"_ot").value.trim(); if(t2) a[q.id+"o"]=t2; } }
+    } else if(q.type==="scale"){
+      var row=[], any=false;
+      q.rows.forEach(function(r,ri){ var c2=form.querySelector("input[name="+q.id+"_"+ri+"]:checked"); row.push(c2?+c2.value:null); if(c2) any=true; });
+      if(any){ n++; a[q.id]=row; }
+    } else if(q.type==="text"){
+      var t3=document.getElementById(q.id).value.trim(); if(t3){ n++; a[q.id]=t3; }
+    }
+  });
+  return {a:a,n:n};
+}
+
+var demoRows=null;
+form.addEventListener("submit",function(e){
+  e.preventDefault();
+  var r=collect(), err=document.getElementById("err");
+  if(r.n<2){ err.hidden=false; return; }
+  err.hidden=true;
+  var btn=document.getElementById("send"); btn.disabled=true; btn.textContent="Duke dërguar…";
+  var json=JSON.stringify(r.a);
+  var finish=function(){
+    try{ localStorage.setItem(VOTED_KEY,"1"); }catch(_){}
+    showDone();
+    if(DEMO){ demoRows.push(r.a); render(); }
+    else setTimeout(load,4000);
+  };
+  if(DEMO){ finish(); return; }
+  var body=new URLSearchParams(); body.append(CONFIG.entry,json);
+  fetch(CONFIG.formAction,{method:"POST",mode:"no-cors",body:body}).then(finish,function(){
+    btn.disabled=false; btn.textContent="Dërgo zërin tim në tryezë";
+    err.textContent="Nuk u dërgua. Kontrollo internetin dhe provo përsëri."; err.hidden=false;
+  });
+});
+
+function showDone(){
+  form.hidden=true;
+  var d=document.getElementById("doneBox"); d.hidden=false;
+}
+
+/* ---------- results ---------- */
+var allRows=[], filt={};
+function parseCSV(text){
+  var rows=[],row=[],f="",q=false;
+  for(var i=0;i<text.length;i++){
+    var ch=text[i];
+    if(q){ if(ch==='"'){ if(text[i+1]==='"'){f+='"';i++;} else q=false; } else f+=ch; }
+    else if(ch==='"') q=true;
+    else if(ch===','){ row.push(f); f=""; }
+    else if(ch==='\n'){ row.push(f); rows.push(row); row=[]; f=""; }
+    else if(ch!=='\r') f+=ch;
+  }
+  if(f!==""||row.length){ row.push(f); rows.push(row); }
+  return rows;
+}
+function valid(a){
+  if(!a||typeof a!=="object"||a.v!==1) return null;
+  var ok={};
+  P.forEach(function(p){ if(Number.isInteger(a[p.id])&&a[p.id]>=0&&a[p.id]<p.opts.length) ok[p.id]=a[p.id]; });
+  Q.forEach(function(q){
+    if(!q.id||q.type==="text") return; var v=a[q.id];
+    if(q.type==="radio"){ if((Number.isInteger(v)&&v>=0&&v<q.opts.length)||(q.other&&v==="x")) ok[q.id]=v; }
+    else if(q.type==="check"&&Array.isArray(v)){
+      var s=[]; v.forEach(function(x){ if(((Number.isInteger(x)&&x>=0&&x<q.opts.length)||(q.other&&x==="x"))&&s.indexOf(x)<0) s.push(x); });
+      if(q.max&&s.length>q.max) s=s.slice(0,q.max);
+      if(s.length) ok[q.id]=s;
+    } else if(q.type==="scale"&&Array.isArray(v)&&v.length===q.rows.length){
+      ok[q.id]=v.map(function(x){ return (Number.isInteger(x)&&x>=q.min&&x<=q.max)?x:null; });
+    }
+  });
+  var answered=Q.filter(function(q){ return q.id&&ok[q.id]!==undefined; }).length;
+  return answered>=2?ok:null;
+}
+function load(){
+  if(DEMO){ if(!demoRows) demoRows=sample(240); allRows=demoRows; render(); return; }
+  fetch(CONFIG.resultsCsv+(CONFIG.resultsCsv.indexOf("?")>-1?"&":"?")+"t="+Date.now()).then(function(r){ if(!r.ok) throw 0; return r.text(); }).then(function(t){
+    var rows=parseCSV(t).slice(1), out=[];
+    rows.forEach(function(r){ var cell=r[r.length-1]; try{ var v=valid(JSON.parse(cell)); if(v) out.push(v); }catch(_){} });
+    allRows=out; render();
+    document.getElementById("updated").textContent="Përditësuar: "+new Date().toLocaleTimeString("sq-AL",{hour:"2-digit",minute:"2-digit"})+". Përgjigjet e reja shfaqen pas disa minutash.";
+  }).catch(function(){ document.getElementById("count").textContent="Rezultatet nuk u ngarkuan. Provo më vonë."; });
+}
+
+function buildFilters(){
+  var g=document.getElementById("filters");
+  ["vo","pa","sp","st","age","wh"].forEach(function(id){
+    var p=P.filter(function(x){return x.id===id;})[0];
+    var s=el("select",{id:"f_"+id});
+    s.appendChild(el("option",{value:"",text:"Të gjithë"}));
+    p.opts.forEach(function(o,i){ s.appendChild(el("option",{value:String(i),text:o})); });
+    s.addEventListener("change",function(){ filt[id]=s.value===""?null:+s.value; render(); });
+    g.appendChild(el("div",{class:"field"},[el("label",{for:"f_"+id,text:p.label.replace(" (nëse po)","")}),s]));
+  });
+}
+
+function pct(x,n){ return n?Math.round(100*x/n):0; }
+function barRow(label,p,cls){
+  var tr=el("div",{class:"track"},[el("div",{class:"fill"+(cls?" "+cls:""),style:"width:"+p+"%"})]);
+  return el("div",{class:"row"},[el("div",{class:"l",text:label}),el("div",{class:"p",text:p+"%"}),tr]);
+}
+var SCALE_COLORS=["var(--line)","color-mix(in srgb,var(--bar) 35%,transparent)","color-mix(in srgb,var(--bar) 60%,transparent)","color-mix(in srgb,var(--bar) 80%,transparent)","var(--bar)"];
+
+function render(){
+  var rows=allRows.filter(function(r){ for(var k in filt){ if(filt[k]!==null&&filt[k]!==undefined&&r[k]!==filt[k]) return false; } return true; });
+  var n=rows.length, out=document.getElementById("results");
+  var filtered=Object.keys(filt).some(function(k){return filt[k]!==null&&filt[k]!==undefined;});
+  document.getElementById("count").textContent=(DEMO?"Shembull · ":"")+n+(filtered?" nga "+allRows.length:"")+" përgjigje";
+  out.innerHTML="";
+  if(n<10){ out.appendChild(el("p",{class:"few",text:n===0?"Ende nuk ka përgjigje këtu.":"Më pak se 10 përgjigje për këtë grup. Rezultatet shfaqen kur të ketë më shumë, që askush të mos identifikohet."})); return; }
+
+  Q.forEach(function(q){
+    if(!q.id||q.type==="text"||q.id==="q8") return;
+    var c=el("div",{class:"r"});
+    if(q.id==="q7"){
+      c.appendChild(el("h3",{text:"Çfarë pritet dhe çfarë duhet"}));
+      c.appendChild(el("p",{class:"hint",text:"Pyetjet 7 dhe 8: çfarë mendojnë njerëzit se do të ndodhë, krahasuar me atë që duan."}));
+      c.appendChild(el("div",{class:"legend"},[el("span",{html:'<i style="background:var(--bar)"></i>Do të ndodhë'}),el("span",{html:'<i style="background:var(--bar2)"></i>Do doja'})]));
+      var a7=rows.filter(function(r){return r.q7!==undefined;}), a8=rows.filter(function(r){return r.q8!==undefined;});
+      q.opts.forEach(function(o,i){
+        var w=a7.filter(function(r){return r.q7===i;}).length, d=a8.filter(function(r){return r.q8===i;}).length;
+        var blk=el("div",{style:"margin:0 0 14px"});
+        blk.appendChild(el("div",{class:"l",style:"font-size:14px;margin:0 0 4px",text:o}));
+        blk.appendChild(mini(pct(w,a7.length),""));
+        if(i<6) blk.appendChild(mini(pct(d,a8.length),"b"));
+        c.appendChild(blk);
+      });
+      var dx=a8.filter(function(r){return r.q8==="x";}).length;
+      if(dx) c.appendChild(el("p",{class:"small",text:"Tjetër (do doja): "+pct(dx,a8.length)+"%"}));
+      c.appendChild(el("p",{class:"small",text:"Përgjigjen: "+a7.length+" / "+a8.length}));
+      out.appendChild(c); return;
+    }
+    c.appendChild(el("h3",{text:q.title}));
+    var ans=rows.filter(function(r){return r[q.id]!==undefined;});
+    if(q.type==="radio"){
+      c.appendChild(el("p",{class:"hint",text:"Përgjigjen: "+ans.length}));
+      q.opts.forEach(function(o,i){ c.appendChild(barRow(o,pct(ans.filter(function(r){return r[q.id]===i;}).length,ans.length))); });
+      if(q.other) c.appendChild(barRow("Tjetër",pct(ans.filter(function(r){return r[q.id]==="x";}).length,ans.length)));
+    } else if(q.type==="check"){
+      c.appendChild(el("p",{class:"hint",text:"% e "+ans.length+" vetave që iu përgjigjën. Shuma kalon 100% sepse mund të zgjidhej më shumë se një."}));
+      var items=q.opts.map(function(o,i){ return {l:o,p:pct(ans.filter(function(r){return r[q.id].indexOf(i)>-1;}).length,ans.length)}; });
+      if(q.other) items.push({l:"Tjetër",p:pct(ans.filter(function(r){return r[q.id].indexOf("x")>-1;}).length,ans.length)});
+      items.sort(function(a,b){return b.p-a.p;}).forEach(function(it){ c.appendChild(barRow(it.l,it.p)); });
+    } else if(q.type==="scale"){
+      c.appendChild(el("p",{class:"hint",text:"Mesatarja, nga "+q.min+" deri në "+q.max+". Ngjyra më e errët = vlerë më e lartë."}));
+      var items2=q.rows.map(function(r,ri){
+        var vals=ans.map(function(x){return x[q.id][ri];}).filter(function(v){return v!==null;});
+        var avg=vals.length?vals.reduce(function(s,v){return s+v;},0)/vals.length:0;
+        var dist=[]; for(var k=q.min;k<=q.max;k++) dist.push(vals.filter(function(v){return v===k;}).length);
+        return {l:r,avg:avg,dist:dist,n:vals.length};
+      }).sort(function(a,b){return b.avg-a.avg;});
+      items2.forEach(function(it){
+        var st=el("div",{class:"stack",title:it.dist.map(function(d,k){return (q.min+k)+": "+pct(d,it.n)+"%";}).join(" · ")});
+        it.dist.forEach(function(d,k){ var idx=q.max-q.min===3?[0,1,3,4][k]:k; st.appendChild(el("span",{style:"width:"+pct(d,it.n)+"%;background:"+SCALE_COLORS[idx]})); });
+        c.appendChild(el("div",{class:"row"},[el("div",{class:"l",text:it.l}),el("div",{class:"p",text:it.avg.toFixed(1)}),st]));
+      });
+    }
+    out.appendChild(c);
+  });
+}
+function mini(p,cls){
+  return el("div",{style:"display:grid;grid-template-columns:minmax(0,1fr) 44px;gap:8px;align-items:center;margin:2px 0"},[
+    el("div",{class:"track",style:"grid-column:auto"},[el("div",{class:"fill"+(cls?" "+cls:""),style:"width:"+p+"%"})]),
+    el("div",{class:"p",style:"font-size:13px;font-weight:600;text-align:right;font-variant-numeric:tabular-nums",text:p+"%"})]);
+}
+
+/* sample data for preview mode only */
+function sample(N){
+  var seed=7; function rnd(){ seed=(seed*16807)%2147483647; return (seed-1)/2147483646; }
+  function pick(w){ var s=w.reduce(function(a,b){return a+b;},0), x=rnd()*s; for(var i=0;i<w.length;i++){ x-=w[i]; if(x<0) return i; } return w.length-1; }
+  var out=[];
+  for(var i=0;i<N;i++){
+    var a={v:1}; if(rnd()<.8) a.age=pick([1,3,3,3,2,1]); if(rnd()<.8) a.st=pick([1,3,4,2,2,1,1,2]); if(rnd()<.8) a.wh=pick([5,3,2,1,2,1]);
+    if(rnd()<.85) a.vo=pick([5,3,1,1]); if(a.vo===0&&rnd()<.7) a.pa=pick([5,4,1,1,1,1,1,1,1]); if(rnd()<.7) a.sp=pick([1,2,3,2,1,2]);
+    a.q1=[0,1,2,3,4,5,6].map(function(){return rnd()<.9?pick([1,2,2,1]):null;});
+    a.q2=pick([2,3,2,1,1]); a.q3=[0,1,2,3,4,5,6,7].map(function(){return pick([1,1,2,2,2]);});
+    a.q4=[pick([3,2,3,2,1,1,2,1])]; var b=pick([3,2,3,2,1,1,2,1]); if(a.q4.indexOf(b)<0) a.q4.push(b);
+    a.q5=pick([3,2,1,3,2,1]); a.q6=[pick([2,2,2,2,1,1])]; a.q7=pick([4,3,1,1,1,1,2]); a.q8=pick([1,3,1,2,2,2]);
+    a.q9=[pick([2,3,3,2,1,2,1])]; a.q10=[0,3]; if(rnd()<.6) a.q10.push(1); a.q11=[pick([2,2,3,1,2,1,1])];
+    out.push(a);
+  }
+  return out;
+}
+
+/* ---------- share & embed ---------- */
+function setupShare(){
+  var url=location.href.split("#")[0];
+  var msg="Tryeza e Rrumbullakët: si dilet nga qorrsokaku? Pyetësor anonim, 5 minuta. Shiko edhe si mendojnë të tjerët: "+url;
+  ["waShare1","waShare2"].forEach(function(id){ document.getElementById(id).href="https://wa.me/?text="+encodeURIComponent(msg); });
+  document.getElementById("embed").textContent='<iframe src="'+url+'" width="100%" height="900" style="border:0;max-width:760px" loading="lazy" title="Tryeza e Rrumbullakët"></iframe>';
+  function copy(text){
+    var m=document.getElementById("copyMsg");
+    var ok=function(){ m.textContent="U kopjua."; }, bad=function(){ m.textContent="Nuk u kopjua. Mbaje gishtin mbi tekst dhe kopjoje."; };
+    if(navigator.clipboard&&window.isSecureContext) navigator.clipboard.writeText(text).then(ok,bad); else bad();
+  }
+  document.getElementById("copyLink").addEventListener("click",function(){ copy(url); });
+  document.getElementById("copyEmbed").addEventListener("click",function(){ copy(document.getElementById("embed").textContent); });
+}
+
+buildForm(); buildFilters(); setupShare();
+if(DEMO) document.getElementById("demoBanner").hidden=false;
+try{ if(localStorage.getItem(VOTED_KEY)) showDone(); }catch(_){}
+load();
+if(!DEMO) setInterval(load,120000);
+</script>
+</body>
+</html>
