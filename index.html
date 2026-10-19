@@ -125,10 +125,12 @@ pre{white-space:pre-wrap;word-break:break-all;background:var(--bg);border:1px so
 <p class="sec">Ndaje</p>
 <div class="q">
 <h3>Ftoji të tjerët në tryezë</h3>
-<p class="hint">Sa më shumë zëra, aq më e vërtetë tryeza.</p>
+<p class="hint">Sa më shumë zëra, aq më e vërtetë tryeza. Ja një tekst i gatshëm. Kopjoje dhe ndaje në WhatsApp, Facebook, Instagram, ose ku të duash.</p>
+<pre id="inviteText" style="font-family:var(--sans);font-size:14.5px;line-height:1.5;word-break:normal"></pre>
 <div class="btns" style="margin:8px 0">
+<button type="button" id="copyInvite">Kopjo tekstin</button>
 <a class="btn wa" id="waShare2" href="#" target="_blank" rel="noopener">Dërgo në WhatsApp</a>
-<button type="button" id="copyLink">Kopjo lidhjen</button>
+<button type="button" id="copyLink">Kopjo vetëm lidhjen</button>
 </div>
 <p class="hint" style="margin-top:14px">Për faqe interneti dhe blogje: vendose pyetësorin në faqen tënde me këtë kod.</p>
 <pre id="embed"></pre>
@@ -473,8 +475,9 @@ function sample(N){
 
 /* ---------- share & embed ---------- */
 function setupShare(){
-  var url=location.href.split("#")[0];
-  var msg="Tryeza e Rrumbullakët Shqiptare: si dilet nga qorrsokaku? Pyetësor anonim, 5 minuta. Shiko edhe si mendojnë të tjerët: "+url;
+  var url="https://tryeza-shqiptare2026.github.io";
+  var msg="Sapo plotësova «Tryezën e Rrumbullakët Shqiptare»: një pyetësor anonim, 5–7 minuta, për krizën e këtyre ditëve dhe si dilet prej saj. Pa emër, pa email, pa llogari. Në fund sheh si mendojnë të tjerët: votuesit e PS-së, të PD-së, të rinjtë, diaspora.\n\nSa më shumë zëra, aq më e vërtetë tryeza. Plotësoje edhe ti, dhe dërgoja dikujt që mendon ndryshe nga ti:\n"+url;
+  document.getElementById("inviteText").textContent=msg;
   ["waShare1","waShare2"].forEach(function(id){ document.getElementById(id).href="https://wa.me/?text="+encodeURIComponent(msg); });
   document.getElementById("embed").textContent='<iframe src="'+url+'" width="100%" height="900" style="border:0;max-width:760px" loading="lazy" title="Tryeza e Rrumbullakët Shqiptare"></iframe>';
   function copy(text){
@@ -483,6 +486,7 @@ function setupShare(){
     if(navigator.clipboard&&window.isSecureContext) navigator.clipboard.writeText(text).then(ok,bad); else bad();
   }
   document.getElementById("copyLink").addEventListener("click",function(){ copy(url); });
+  document.getElementById("copyInvite").addEventListener("click",function(){ copy(msg); });
   document.getElementById("copyEmbed").addEventListener("click",function(){ copy(document.getElementById("embed").textContent); });
   document.getElementById("copyMail").addEventListener("click",function(){
     var m=document.getElementById("mailMsg"), a="tryeza.shqiptare.2026@gmail.com";
