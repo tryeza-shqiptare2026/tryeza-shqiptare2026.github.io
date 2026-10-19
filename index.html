@@ -198,7 +198,7 @@ var Q = [
 ];
 
 var DEMO = !CONFIG.formAction || !CONFIG.entry || !CONFIG.resultsCsv;
-var VOTED_KEY = "tryeza_votoi_v1";
+var VOTED_KEY = "tryeza_votoi_v2";
 var form = document.getElementById("pyetesori");
 
 function el(tag, attrs, kids){
@@ -311,11 +311,14 @@ form.addEventListener("submit",function(e){
     else setTimeout(load,4000);
   };
   if(DEMO){ finish(); return; }
-  var body=new URLSearchParams(); body.append(CONFIG.entry,json);
-  fetch(CONFIG.formAction,{method:"POST",mode:"no-cors",body:body}).then(finish,function(){
-    btn.disabled=false; btn.textContent="Dërgo zërin tim në tryezë";
-    err.textContent="Nuk u dërgua. Kontrollo internetin dhe provo përsëri."; err.hidden=false;
-  });
+  /* classic hidden-iframe POST to Google Forms */
+  var fr=document.getElementById("gf_sink");
+  if(!fr){ fr=document.createElement("iframe"); fr.name="gf_sink"; fr.id="gf_sink"; fr.hidden=true; fr.setAttribute("aria-hidden","true"); document.body.appendChild(fr); }
+  var gf=document.createElement("form"); gf.method="POST"; gf.action=CONFIG.formAction; gf.target="gf_sink"; gf.hidden=true;
+  var hi=document.createElement("input"); hi.type="hidden"; hi.name=CONFIG.entry; hi.value=json; gf.appendChild(hi);
+  var done=false, ok=function(){ if(done) return; done=true; finish(); };
+  fr.onload=ok; setTimeout(ok,4000);
+  document.body.appendChild(gf); gf.submit(); setTimeout(function(){ gf.remove(); },5000);
 });
 
 function showDone(){
