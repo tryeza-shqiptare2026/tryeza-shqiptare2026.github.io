@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Tryeza e Rrumbullakët</title>
+<title>Tryeza e Rrumbullakët Shqiptare</title>
 <meta name="description" content="Pyetësor i hapur dhe anonim: si dilet nga qorrsokaku politik në Shqipëri? Rezultatet shfaqen live.">
-<meta property="og:title" content="Tryeza e Rrumbullakët: si dilet nga qorrsokaku?">
+<meta property="og:title" content="Tryeza e Rrumbullakët Shqiptare · Tetor 2026">
 <meta property="og:description" content="Pyetësor anonim, 5–7 minuta. Pa emra, pa email, pa parti. Shiko si mendojnë të tjerët.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&family=Inter:wght@400;500;600;700&display=swap">
@@ -21,6 +21,7 @@ main{max-width:720px;margin:0 auto;padding-block:24px 80px;padding-left:max(16px
 h1{font-family:var(--serif);font-size:clamp(30px,7vw,42px);line-height:1.12;margin:4px 0 8px;text-wrap:balance}
 h2{text-wrap:balance}
 .sub{color:var(--muted);font-size:14px;margin:0 0 18px}
+.voices{display:inline-block;font-size:15px;font-weight:600;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:6px 14px;margin:0 0 14px;font-variant-numeric:tabular-nums}
 .tabs{display:flex;gap:8px;margin:0 0 18px}
 .tabs a{flex:1;text-align:center;font-weight:600;font-size:14px;padding:10px;border:1px solid var(--line);border-radius:8px;color:var(--accent);text-decoration:none;background:var(--paper)}
 .intro{font-family:var(--serif);font-size:16.5px;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:0 0 14px}
@@ -88,8 +89,9 @@ pre{white-space:pre-wrap;word-break:break-all;background:var(--bg);border:1px so
 </head>
 <body>
 <main>
-<h1>Tryeza e Rrumbullakët</h1>
-<p class="sub">Si dilet nga qorrsokaku? · Pyetësor i hapur dhe anonim · 5–7 minuta</p>
+<h1>Tryeza e Rrumbullakët Shqiptare</h1>
+<p class="sub">Tetor 2026 · Për të gjithë shqiptarët, kudo që janë · Si dilet nga qorrsokaku? · Anonim, 5–7 minuta</p>
+<p class="voices" id="voices" hidden></p>
 <nav class="tabs"><a href="#pyetesori">Plotëso</a><a href="#rezultatet">Shiko rezultatet</a></nav>
 
 <div class="intro">
@@ -133,6 +135,15 @@ pre{white-space:pre-wrap;word-break:break-all;background:var(--bg);border:1px so
 <div class="btns" style="margin:6px 0"><button type="button" id="copyEmbed">Kopjo kodin</button></div>
 <p class="small" id="copyMsg"></p>
 </div>
+
+<p class="sec">Ide dhe kritika</p>
+<div class="q">
+<h3>Kjo tryezë ndërtohet bashkë</h3>
+<p class="hint">Mungon një pyetje? Një opsion është i padrejtë? Ke një ide më të mirë? Shkruaj. Pyetësori përmirësohet me propozimet tuaja.</p>
+<p style="font-size:17px;font-weight:600;margin:10px 0;word-break:break-all"><a id="mailLink" href="mailto:tryeza.shqiptare.2026@gmail.com?subject=Tryeza%20e%20Rrumbullak%C3%ABt%20-%20ide" style="color:var(--accent)">tryeza.shqiptare.2026@gmail.com</a></p>
+<div class="btns" style="margin:6px 0"><a class="btn" href="mailto:tryeza.shqiptare.2026@gmail.com?subject=Tryeza%20e%20Rrumbullak%C3%ABt%20-%20ide">Shkruaj një email</a><button type="button" id="copyMail">Kopjo adresën</button></div>
+<p class="small" id="mailMsg"></p>
+</div>
 </main>
 
 <script>
@@ -140,9 +151,9 @@ pre{white-space:pre-wrap;word-break:break-all;background:var(--bg);border:1px so
    Plotëso këto tri fusha pasi të krijosh Google Form-in.
    Bosh = mënyrë prove me të dhëna shembull. */
 var CONFIG = {
-  formAction: "",   // p.sh. "https://docs.google.com/forms/d/e/XXXX/formResponse"
-  entry: "",        // p.sh. "entry.123456789"
-  resultsCsv: ""    // p.sh. "https://docs.google.com/spreadsheets/d/e/XXXX/pub?gid=0&single=true&output=csv"
+  formAction: "https://docs.google.com/forms/d/e/1FAIpQLSfQKpICCraLviCjR5nZH0xDdC2o6PpYXpCGzfXAF2spYNDHIQ/formResponse",   // p.sh. "https://docs.google.com/forms/d/e/XXXX/formResponse"
+  entry: "entry.5234389",        // p.sh. "entry.123456789"
+  resultsCsv: "https://docs.google.com/spreadsheets/d/e/2PACX-1vT9qzqUiyizfCqOw6yEjHNgJ6803AFVZGkKIDGh5y_DIUt6NmvgOq9MngM-8u3TnrQCJ-F96-DaiOBV/pub?output=csv"    // p.sh. "https://docs.google.com/spreadsheets/d/e/XXXX/pub?gid=0&single=true&output=csv"
 };
 /* ======================================================= */
 
@@ -378,6 +389,8 @@ function render(){
   var rows=allRows.filter(function(r){ for(var k in filt){ if(filt[k]!==null&&filt[k]!==undefined&&r[k]!==filt[k]) return false; } return true; });
   var n=rows.length, out=document.getElementById("results");
   var filtered=Object.keys(filt).some(function(k){return filt[k]!==null&&filt[k]!==undefined;});
+  var tot=allRows.length, v=document.getElementById("voices");
+  v.textContent=(DEMO?"Shembull: ":"")+tot.toLocaleString("sq-AL")+(tot===1?" zë":" zëra")+" në tryezë deri tani"; v.hidden=false;
   document.getElementById("count").textContent=(DEMO?"Shembull · ":"")+n+(filtered?" nga "+allRows.length:"")+" përgjigje";
   out.innerHTML="";
   if(n<10){ out.appendChild(el("p",{class:"few",text:n===0?"Ende nuk ka përgjigje këtu.":"Më pak se 10 përgjigje për këtë grup. Rezultatet shfaqen kur të ketë më shumë, që askush të mos identifikohet."})); return; }
@@ -458,9 +471,9 @@ function sample(N){
 /* ---------- share & embed ---------- */
 function setupShare(){
   var url=location.href.split("#")[0];
-  var msg="Tryeza e Rrumbullakët: si dilet nga qorrsokaku? Pyetësor anonim, 5 minuta. Shiko edhe si mendojnë të tjerët: "+url;
+  var msg="Tryeza e Rrumbullakët Shqiptare: si dilet nga qorrsokaku? Pyetësor anonim, 5 minuta. Shiko edhe si mendojnë të tjerët: "+url;
   ["waShare1","waShare2"].forEach(function(id){ document.getElementById(id).href="https://wa.me/?text="+encodeURIComponent(msg); });
-  document.getElementById("embed").textContent='<iframe src="'+url+'" width="100%" height="900" style="border:0;max-width:760px" loading="lazy" title="Tryeza e Rrumbullakët"></iframe>';
+  document.getElementById("embed").textContent='<iframe src="'+url+'" width="100%" height="900" style="border:0;max-width:760px" loading="lazy" title="Tryeza e Rrumbullakët Shqiptare"></iframe>';
   function copy(text){
     var m=document.getElementById("copyMsg");
     var ok=function(){ m.textContent="U kopjua."; }, bad=function(){ m.textContent="Nuk u kopjua. Mbaje gishtin mbi tekst dhe kopjoje."; };
@@ -468,6 +481,11 @@ function setupShare(){
   }
   document.getElementById("copyLink").addEventListener("click",function(){ copy(url); });
   document.getElementById("copyEmbed").addEventListener("click",function(){ copy(document.getElementById("embed").textContent); });
+  document.getElementById("copyMail").addEventListener("click",function(){
+    var m=document.getElementById("mailMsg"), a="tryeza.shqiptare.2026@gmail.com";
+    if(navigator.clipboard&&window.isSecureContext) navigator.clipboard.writeText(a).then(function(){m.textContent="Adresa u kopjua.";},function(){m.textContent="Mbaje gishtin mbi adresë dhe kopjoje.";});
+    else m.textContent="Mbaje gishtin mbi adresë dhe kopjoje.";
+  });
 }
 
 buildForm(); buildFilters(); setupShare();
