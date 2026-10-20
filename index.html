@@ -6,7 +6,7 @@
 <title>Tryeza e Rrumbullakët Shqiptare</title>
 <meta name="description" content="Pyetësor i hapur dhe anonim: si dilet nga qorrsokaku politik në Shqipëri? Rezultatet shfaqen live.">
 <meta property="og:title" content="Tryeza e Rrumbullakët Shqiptare · Tetor 2026">
-<meta property="og:description" content="Pyetësor anonim, 5–7 minuta. Pa emra, pa email, pa parti. Shiko si mendojnë të tjerët.">
+<meta property="og:description" content="Pyetësor anonim, 6–7 minuta. Pa emra, pa email, pa parti. Shiko si mendojnë të tjerët.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&family=Inter:wght@400;500;600;700&display=swap">
 <style>
@@ -90,7 +90,7 @@ pre{white-space:pre-wrap;word-break:break-all;background:var(--bg);border:1px so
 <body>
 <main>
 <h1>Tryeza e Rrumbullakët Shqiptare</h1>
-<p class="sub">Tetor 2026 · Për të gjithë shqiptarët, kudo që janë · Si dilet nga qorrsokaku? · Anonim, 5–7 minuta</p>
+<p class="sub">Tetor 2026 · Për të gjithë shqiptarët, kudo që janë · Si dilet nga qorrsokaku? · Anonim, 6–7 minuta</p>
 <p class="voices" id="voices" hidden></p>
 <nav class="tabs"><a href="#pyetesori">Plotëso</a><a href="#rezultatet">Shiko rezultatet</a></nav>
 
@@ -173,30 +173,37 @@ var Q = [
   {sec:"Çfarë po ndodh"},
   {id:"q1", type:"scale", min:0, max:3, title:"1. Rruga është një supë me shumë përbërës. Sa i madh është secili?", hint:"0 = s'ka fare · 1 = pak · 2 = një pjesë e mirë · 3 = shumë",
    rows:["Studentë me kërkesa reale","Të rinj 19–29 që s'besojnë te vota","Adoleshentë nën 18, shumë nga periferitë","Militantë të organizuar të opozitës","Grupe të së majtës radikale","Provokatorë të vetë pushtetit","Huliganë që duan rrëmujë e plaçkë"]},
-  {id:"q2", type:"radio", title:"2. Sa nga dhuna mendon se është e organizuar?",
-   opts:["Pothuajse e gjitha. Ka dorë të fortë pas.","Shumica","Gjysmë për gjysmë","Pak. Kryesisht shpërthim spontan.","Nuk e di"]},
-  {id:"q3", type:"scale", min:1, max:5, title:"3. Sa përgjegjësi ka secili për gjendjen ku jemi?", hint:"1 = pak ose aspak · 5 = shumë",
+  {id:"q3", type:"scale", min:1, max:5, title:"2. Sa përgjegjësi ka secili për gjendjen ku jemi?", hint:"1 = pak ose aspak · 5 = shumë",
    rows:["Qeveria / Rama","PD / Berisha","Partitë e reja / të vogla","Organizatorët e protestës","Prindërit e të miturve","Policia","Media dhe rrjetet sociale","Ne, qytetarët (që s'votuam, s'folëm)"]},
   {sec:"Si ndalet dhuna"},
-  {id:"q4", type:"check", max:3, other:true, title:"4. Çfarë mund ta ndalë dhunën në rrugë në javët e ardhshme?", hint:"Shumë mund të ndihmojnë. Zgjidh 3 më të rëndësishmet.",
+  {id:"q4", type:"check", max:3, other:true, title:"3. Çfarë mund ta ndalë dhunën në rrugë në javët e ardhshme?", hint:"Shumë mund të ndihmojnë. Zgjidh 3 më efektivet.",
    opts:["Procedim i shpejtë i atyre që djegin, pa prekur protestuesit paqësorë","Organizatorët ndahen publikisht nga dhuna","Takim i hapur i Ramës me studentët, me ndërmjetës të pavarur","Thirrje e përbashkët e artistëve, profesorëve, klerikëve, sportistëve","Pezullim i masës në arsim që i ndezi protestat, deri në dialog","Përgjegjësi ligjore për prindërit e të miturve që djegin","Forma të tjera proteste: zinxhirë njerëzorë, bllokim paqësor i institucioneve","Asgjë. Do shuhet vetë."]},
-  {id:"q5", type:"radio", other:true, title:"5. Kush mund të ulet me qeverinë në emër të protestës?",
+  {id:"q5", type:"radio", other:true, title:"4. Kush mund të ulet me qeverinë në emër të protestës?",
    opts:["Studentë pa emra publikë, përmes Avokatit të Popullit ose Komitetit të Helsinkit","Rektorët dhe senatet akademike","Partitë e opozitës","Një grup qytetarësh të njohur jopartiakë","Ndërmjetës ndërkombëtar (BE, ambasadat)","Askush. Nuk ka me kë të ulesh."]},
-  {id:"q6", type:"check", max:2, title:"6. Pse heshtin artistët, profesorët dhe figurat publike?", hint:"Mund të jenë të gjitha. Zgjidh 2 arsyet kryesore.",
-   opts:["Varësi nga fondet, tenderat, vendet e punës","Frikë nga sulmet dhe baltosja në rrjete","Nuk duan të lidhen me dhunën","Polarizimi nuk lë hapësirë për zë të tretë","Flasin, por nuk i dëgjojmë","Nuk e di"]},
   {sec:"Rrugëdalja politike"},
-  {id:"q7", type:"radio", title:"7. Realisht, çfarë mendon se do të ndodhë në 12 muajt e ardhshëm?",
+  {id:"q7", type:"radio", title:"5. Realisht, çfarë mendon se do të ndodhë në 12 muajt e ardhshëm?",
    opts:["Asgjë nuk ndryshon, Rama deri në 2029","Rama mbetet, por hap tryezë për reformat","PS ndërron kryeministrin, pa zgjedhje","Zgjedhje të parakohshme me ligjin aktual","Qeveri teknike 1–2 vjet, pastaj zgjedhje","Referendum për reformat kryesore","Përshkallëzim i mëtejshëm i dhunës"]},
-  {id:"q8", type:"radio", title:"8. Po ti, çfarë do doje të ndodhte?", hint:"Mund të jetë ndryshe nga përgjigjja e mëparshme.",
+  {id:"q8", type:"radio", title:"6. Po ti, çfarë do doje të ndodhte?", hint:"Mund të jetë ndryshe nga përgjigjja e mëparshme.",
    opts:["Asgjë nuk ndryshon, Rama deri në 2029","Rama mbetet, por hap tryezë për reformat","PS ndërron kryeministrin, pa zgjedhje","Zgjedhje të parakohshme me ligjin aktual","Qeveri teknike 1–2 vjet, pastaj zgjedhje","Referendum për reformat kryesore"], other:true},
-  {id:"q9", type:"check", max:3, other:true, title:"9. Afatgjatë, çfarë e thyen ciklin e 30 viteve?", hint:"Shumë mund të ndihmojnë. Zgjidh 3 më të rëndësishmet.",
-   opts:["Pakt 4-vjeçar i partive të reja, me program të përbashkët","Lista plotësisht të hapura","Kufizim mandatesh për kryeministrin dhe kryetarët e partive","Demokraci e brendshme në parti (primare të vërteta)","Vota e diasporës, e thjeshtë dhe e sigurt","Konfiskim i pasurive të pajustifikuara, me gjykatë","Arsim qytetar në shkolla"]},
+  {id:"q9", type:"check", max:3, other:true, title:"7. Afatgjatë, çfarë e thyen ciklin e 30 viteve?", hint:"Shumë mund të ndihmojnë. Zgjidh 3 më të rëndësishmet.",
+   opts:["Pakt 4-vjeçar i partive të reja, me program të përbashkët","Lista plotësisht të hapura","Kufizim mandatesh për kryeministrin dhe kryetarët e partive","Demokraci e brendshme në parti (primare të vërteta)","Vota e diasporës, e thjeshtë dhe e sigurt","Konfiskim i pasurive të pajustifikuara, me gjykatë","Arsim qytetar në shkolla","Administratë publike që nuk ndryshon me partinë në pushtet","Financim transparent i partive dhe i fushatave","Tendera dhe kontrata publike plotësisht transparente"]},
+  {id:"q17", type:"radio", title:"8. Nëse kryeministri ndërrohet nesër, por rregullat mbeten të njëjta (sistemi zgjedhor, partitë, institucionet), çfarë pret?",
+   opts:["Përmirësim të madh. Problemi është te njeriu.","Pak përmirësim, por problemet kryesore mbeten.","Asgjë s'ndryshon. Tjetri do bëjë të njëjtën gjë.","Varet krejt nga kush vjen.","Nuk e di"]},
+  {id:"q16", type:"radio", title:"9. Nëse partia që mbështet humb zgjedhje të ndershme, a do ta pranoje rezultatin?",
+   opts:["Po, pa diskutim","Po, por do protestoja paqësisht","Varet nga diferenca","Jo","Nuk mbështes asnjë parti"]},
   {id:"q10", type:"check", title:"10. Cilat nga këto nuk duhet të ndodhin në asnjë rast?", hint:"Zgjidh sa të duash.",
-   opts:["Djegia e pronës private e publike","Dhuna e policisë ndaj protestuesve paqësorë","Rrëzimi i qeverisë me forcë","Ushtria në pushtet, qoftë edhe «përkohësisht»","Burgosja e të miturve","Gjueti shtrigash ndaj kundërshtarëve politikë"]},
+   opts:["Djegia e pronës private e publike","Dhuna e policisë ndaj protestuesve paqësorë","Rrëzimi i qeverisë me forcë","Ushtria në pushtet, qoftë edhe «përkohësisht»","Burgosja e të miturve për pjesëmarrje në protestë","Gjueti shtrigash ndaj kundërshtarëve politikë"]},
+  {sec:"Përvoja jote"},
+  {id:"q13", type:"check", title:"11. Gjatë 5 viteve të fundit, a të ka ndodhur personalisht ndonjë nga këto?", hint:"Zgjidh sa të duash. Përgjigjja është anonime.",
+   opts:["Më është kërkuar vota në këmbim të parave, punës ose një favori","Kam pasur presion nga eprori në punë se si të votoj","Kam marrë kërcënim për votën","I ka ndodhur dikujt në familjen time","Asnjë nga këto"]},
+  {id:"q14", type:"radio", title:"12. A varet puna, biznesi ose kontratat e tua apo të familjes nga cila parti është në pushtet?",
+   opts:["Po, shumë","Pak","Jo","Nuk e di"]},
+  {id:"q15", type:"check", max:3, title:"13. Nga i merr kryesisht lajmet?", hint:"Zgjidh deri në 3, ato që të vijnë më shpesh.",
+   opts:["Televizioni","Facebook","TikTok","Instagram","YouTube","Portalet e lajmeve","WhatsApp ose Telegram, nga miqtë","Nga njerëzit përreth, drejtpërdrejt"]},
   {sec:"Ti"},
-  {id:"q11", type:"check", title:"11. Çfarë do të bëje vetë?", hint:"Zgjidh sa të duash.",
-   opts:["Do dilja në protestë paqësore","Do firmosja një deklaratë qytetare","Do votoja ndryshe herën tjetër","Do përfshihesha në politikë aktive","Do flisja me të rinjtë që njoh","Asgjë. Nuk kam më besim.","Do ikja nga vendi"]},
-  {id:"q12", type:"text", title:"12. Me një fjali: si e thyejmë rrethin?", hint:"Nuk shfaqet te rezultatet, por mos shkruaj emra ose të dhëna personale."}
+  {id:"q18", type:"radio", title:"14. Herën tjetër që të ketë zgjedhje, çfarë do bësh?",
+   opts:["Do votoj si zakonisht","Do votoj për një parti të re ose të vogël","Do shkoj, por do ta prish votën me qëllim, si protestë kundër sistemit","Do votoj bosh (votë e bardhë)","Nuk do shkoj të votoj","Nuk e di ende"]},
+  {id:"q12", type:"text", title:"15. Me një fjali: si e thyejmë rrethin?", hint:"Nuk shfaqet te rezultatet, por mos shkruaj emra ose të dhëna personale."}
 ];
 
 var DEMO = !CONFIG.formAction || !CONFIG.entry || !CONFIG.resultsCsv;
@@ -405,7 +412,7 @@ function render(){
     var c=el("div",{class:"r"});
     if(q.id==="q7"){
       c.appendChild(el("h3",{text:"Çfarë pritet dhe çfarë duhet"}));
-      c.appendChild(el("p",{class:"hint",text:"Pyetjet 7 dhe 8: çfarë mendojnë njerëzit se do të ndodhë, krahasuar me atë që duan."}));
+      c.appendChild(el("p",{class:"hint",text:"Pyetjet 5 dhe 6: çfarë mendojnë njerëzit se do të ndodhë, krahasuar me atë që duan."}));
       c.appendChild(el("div",{class:"legend"},[el("span",{html:'<i style="background:var(--bar)"></i>Do të ndodhë'}),el("span",{html:'<i style="background:var(--bar2)"></i>Do doja'})]));
       var a7=rows.filter(function(r){return r.q7!==undefined;}), a8=rows.filter(function(r){return r.q8!==undefined;});
       q.opts.forEach(function(o,i){
@@ -423,6 +430,7 @@ function render(){
     }
     c.appendChild(el("h3",{text:q.title}));
     var ans=rows.filter(function(r){return r[q.id]!==undefined;});
+    if(ans.length<10){ c.appendChild(el("p",{class:"few",text:"Pyetje e re ose me pak përgjigje ende ("+ans.length+"). Rezultatet shfaqen kur të ketë të paktën 10."})); out.appendChild(c); return; }
     if(q.type==="radio"){
       c.appendChild(el("p",{class:"hint",text:"Përgjigjen: "+ans.length}));
       q.opts.forEach(function(o,i){ c.appendChild(barRow(o,pct(ans.filter(function(r){return r[q.id]===i;}).length,ans.length))); });
@@ -476,7 +484,7 @@ function sample(N){
 /* ---------- share & embed ---------- */
 function setupShare(){
   var url="https://tryeza-shqiptare2026.github.io";
-  var msg="Sapo plotësova «Tryezën e Rrumbullakët Shqiptare»: një pyetësor anonim, 5–7 minuta, për krizën e këtyre ditëve dhe si dilet prej saj. Pa emër, pa email, pa llogari. Në fund sheh si mendojnë të tjerët: votuesit e PS-së, të PD-së, të rinjtë, diaspora.\n\nSa më shumë zëra, aq më e vërtetë tryeza. Plotësoje edhe ti, dhe dërgoja dikujt që mendon ndryshe nga ti:\n"+url;
+  var msg="Sapo plotësova «Tryezën e Rrumbullakët Shqiptare»: një pyetësor anonim, 6–7 minuta, për krizën e këtyre ditëve dhe si dilet prej saj. Pa emër, pa email, pa llogari. Në fund sheh si mendojnë të tjerët: votuesit e PS-së, të PD-së, të rinjtë, diaspora.\n\nSa më shumë zëra, aq më e vërtetë tryeza. Plotësoje edhe ti, dhe dërgoja dikujt që mendon ndryshe nga ti:\n"+url;
   document.getElementById("inviteText").textContent=msg;
   ["waShare1","waShare2"].forEach(function(id){ document.getElementById(id).href="https://wa.me/?text="+encodeURIComponent(msg); });
   document.getElementById("embed").textContent='<iframe src="'+url+'" width="100%" height="900" style="border:0;max-width:760px" loading="lazy" title="Tryeza e Rrumbullakët Shqiptare"></iframe>';
