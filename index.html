@@ -6,7 +6,7 @@
 <title>Tryeza e Rrumbullakët Shqiptare</title>
 <meta name="description" content="Pyetësor i hapur dhe anonim: si dilet nga qorrsokaku politik në Shqipëri? Rezultatet shfaqen live.">
 <meta property="og:title" content="Tryeza e Rrumbullakët Shqiptare · Tetor 2026">
-<meta property="og:description" content="Pyetësor anonim, 6–7 minuta. Pa emra, pa email, pa parti. Shiko si mendojnë të tjerët.">
+<meta property="og:description" content="Pyetësor anonim, 5 minuta. Pa emra, pa email, pa parti. Shiko si mendojnë të tjerët.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600;7..72,700&family=Inter:wght@400;500;600;700&display=swap">
 <style>
@@ -90,7 +90,7 @@ pre{white-space:pre-wrap;word-break:break-all;background:var(--bg);border:1px so
 <body>
 <main>
 <h1>Tryeza e Rrumbullakët Shqiptare</h1>
-<p class="sub">Tetor 2026 · Për të gjithë shqiptarët, kudo që janë · Si dilet nga qorrsokaku? · Anonim, 6–7 minuta</p>
+<p class="sub">Tetor 2026 · Për të gjithë shqiptarët, kudo që janë · Si dilet nga qorrsokaku? · Anonim, 5 minuta</p>
 <p class="voices" id="voices" hidden></p>
 <nav class="tabs"><a href="#pyetesori">Plotëso</a><a href="#rezultatet">Shiko rezultatet</a></nav>
 
@@ -99,6 +99,7 @@ pre{white-space:pre-wrap;word-break:break-all;background:var(--bg);border:1px so
 <p>Një pjesë e rrugës thërret «Rama ik», por askush nuk thotë qartë kush vjen ditën tjetër. Studentët e vërtetë nuk dalin në tryezë, nga frika se do t'i blejnë, do t'i kërcënojnë ose do t'i baltosin. Partitë e vjetra presin të përfitojnë. Partitë e reja janë të përçara. Artistët, profesorët dhe figurat publike heshtin.</p>
 <p>Në mes janë dyqanet, policët e lodhur, fëmijët gjashtëmbëdhjetëvjeçarë dhe prindërit e tyre.</p>
 <p>Kjo është një tryezë e rrumbullakët ku mund të ulet kushdo. Nuk ka përgjigje të sakta.</p>
+<p>Nëse do të lexosh më shumë, kemi edhe një propozim kolektiv: <a href="https://tryeza-shqiptare2026.github.io/manifesti">«Të ndryshojmë rregullat, jo vetëm njerëzit»</a>.</p>
 </div>
 
 <p class="note">Pa emër, pa email, pa llogari. Pyetjet për ty janë opsionale. Rezultatet janë të hapura për këdo. Ky nuk është sondazh shkencor: tregon mendimin e atyre që zgjodhën të përgjigjen.</p>
@@ -484,7 +485,7 @@ function sample(N){
 /* ---------- share & embed ---------- */
 function setupShare(){
   var url="https://tryeza-shqiptare2026.github.io";
-  var msg="Sapo plotësova «Tryezën e Rrumbullakët Shqiptare»: një pyetësor anonim, 6–7 minuta, për krizën e këtyre ditëve dhe si dilet prej saj. Pa emër, pa email, pa llogari. Në fund sheh si mendojnë të tjerët: votuesit e PS-së, të PD-së, të rinjtë, diaspora.\n\nSa më shumë zëra, aq më e vërtetë tryeza. Plotësoje edhe ti, dhe dërgoja dikujt që mendon ndryshe nga ti:\n"+url;
+  var msg="Sapo plotësova «Tryezën e Rrumbullakët Shqiptare»: një pyetësor anonim, 5 minuta, për krizën e këtyre ditëve dhe si dilet prej saj. Pa emër, pa email, pa llogari. Në fund sheh si mendojnë të tjerët: votuesit e PS-së, të PD-së, të rinjtë, diaspora.\n\nSa më shumë zëra, aq më e vërtetë tryeza. Plotësoje edhe ti, dhe dërgoja dikujt që mendon ndryshe nga ti:\n"+url;
   document.getElementById("inviteText").textContent=msg;
   ["waShare1","waShare2"].forEach(function(id){ document.getElementById(id).href="https://wa.me/?text="+encodeURIComponent(msg); });
   document.getElementById("embed").textContent='<iframe src="'+url+'" width="100%" height="900" style="border:0;max-width:760px" loading="lazy" title="Tryeza e Rrumbullakët Shqiptare"></iframe>';
