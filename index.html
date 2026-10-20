@@ -313,6 +313,7 @@ form.addEventListener("submit",function(e){
   if(r.n<2){ err.hidden=false; return; }
   err.hidden=true;
   var btn=document.getElementById("send"); btn.disabled=true; btn.textContent="Duke dërguar…";
+  r.a.id=Date.now().toString(36)+Math.random().toString(36).slice(2,8);
   var json=JSON.stringify(r.a);
   var finish=function(){
     try{ localStorage.setItem(VOTED_KEY,"1"); }catch(_){}
@@ -328,7 +329,12 @@ form.addEventListener("submit",function(e){
   var hi=document.createElement("input"); hi.type="hidden"; hi.name=CONFIG.entry; hi.value=json; gf.appendChild(hi);
   var done=false, ok=function(){ if(done) return; done=true; finish(); };
   fr.onload=ok; setTimeout(ok,4000);
-  document.body.appendChild(gf); gf.submit(); setTimeout(function(){ gf.remove(); },5000);
+  document.body.appendChild(gf); try{ gf.submit(); }catch(_){} setTimeout(function(){ gf.remove(); },5000);
+  /* rrugë rezervë: të njëjtën përgjigje e dërgojmë edhe me fetch dhe me GET; dublikatat hiqen te rezultatet sipas id */
+  try{ var body=new URLSearchParams(); body.append(CONFIG.entry,json);
+    fetch(CONFIG.formAction,{method:"POST",mode:"no-cors",body:body,keepalive:true}).catch(function(){}); }catch(_){}
+  try{ var img=new Image(); img.referrerPolicy="no-referrer";
+    img.src=CONFIG.formAction+"?"+encodeURIComponent(CONFIG.entry)+"="+encodeURIComponent(json)+"&submit=Submit"; }catch(_){}
 });
 
 function showDone(){
@@ -366,6 +372,7 @@ function valid(a){
       ok[q.id]=v.map(function(x){ return (Number.isInteger(x)&&x>=q.min&&x<=q.max)?x:null; });
     }
   });
+  if(typeof a.id==="string"&&a.id.length<=24) ok.id=a.id;
   var answered=Q.filter(function(q){ return q.id&&ok[q.id]!==undefined; }).length;
   return answered>=2?ok:null;
 }
@@ -373,7 +380,8 @@ function load(){
   if(DEMO){ if(!demoRows) demoRows=sample(240); allRows=demoRows; render(); return; }
   fetch(CONFIG.resultsCsv+(CONFIG.resultsCsv.indexOf("?")>-1?"&":"?")+"t="+Date.now()).then(function(r){ if(!r.ok) throw 0; return r.text(); }).then(function(t){
     var rows=parseCSV(t).slice(1), out=[];
-    rows.forEach(function(r){ var cell=r[r.length-1]; try{ var v=valid(JSON.parse(cell)); if(v) out.push(v); }catch(_){} });
+    var seen={};
+    rows.forEach(function(r){ var cell=r[r.length-1]; try{ var v=valid(JSON.parse(cell)); if(v){ if(v.id){ if(seen[v.id]) return; seen[v.id]=1; } out.push(v); } }catch(_){} });
     allRows=out; render();
     document.getElementById("updated").textContent="Përditësuar: "+new Date().toLocaleTimeString("sq-AL",{hour:"2-digit",minute:"2-digit"})+". Përgjigjet e reja shfaqen pas disa minutash.";
   }).catch(function(){ document.getElementById("count").textContent="Rezultatet nuk u ngarkuan. Provo më vonë."; });
